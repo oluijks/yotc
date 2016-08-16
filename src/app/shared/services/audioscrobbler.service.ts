@@ -1,9 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
+import { CONSTANTS } from '../../shared';
 
 @Injectable()
 export class AudioScrobblerService {
+
+  public audioScrobblerApiKey: string;
 
   /**
    * Last.fm API Key.
@@ -12,7 +15,7 @@ export class AudioScrobblerService {
    * @private
    * @type {string}
    */
-  private _apiKey: string = 'bca59732cf313274b3bec34e8f20a0b3';
+  private _apiKey: string;
 
   /**
    * Base URL for the Last.fm API.
@@ -38,7 +41,9 @@ export class AudioScrobblerService {
    */
   private _format: string = 'json';
 
-  constructor(private _http: Http) {}
+  constructor(private _http: Http) {
+    this._apiKey = CONSTANTS.MAIN.APP.AUDIOSCROBBLER_API_KEY;
+  }
 
   /**
    * Get the artist information (bio) from Last.fm API.

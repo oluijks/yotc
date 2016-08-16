@@ -9,4 +9,5 @@
 
 export interface AppEnv {
     APP_URL?: string;
+    AUDIOSCROBBLER_API_KEY?: string;
 }

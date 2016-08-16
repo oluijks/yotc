@@ -1,8 +1,7 @@
 # Year of the cat
 
 ## Introduction
-
-## Installation
+Year of the cat (a simple spotify app)
 
 ## License
 MIT

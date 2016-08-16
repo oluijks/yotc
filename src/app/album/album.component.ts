@@ -2,9 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { SpotifyService } from '../shared/services/spotify.service';
 import { Album } from '../shared/models/Album';
 import { ActivatedRoute } from '@angular/router';
+import { TruncatePipe } from '../shared/pipes/truncate.pipe';
 
 @Component({
     selector: 'as-album',
+    pipes: [TruncatePipe],
     templateUrl: 'app/album/album.html',
     styleUrls: ['app/album/album.css']
 })

@@ -5,7 +5,7 @@
       <ol class="breadcrumb">
         <li><a routerLink="/"><i class="fa fa-home" aria-hidden="true"></i></a></li>
         <li><a routerLink="/artist/{{ album.artists[0].id }}">{{ album.artists[0].name }}</a></li>
-        <li class="active">{{ album.name }}</li>
+        <li class="active">{{ album.name | asTruncatePipe: 25 }}</li>
       </ol>
     </div>
   </div>

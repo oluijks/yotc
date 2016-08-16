@@ -72,12 +72,24 @@ export class SpotifyService {
     return this._returnResponse(this._query);
   }
 
+  /**
+   * Get a specific album.
+   *
+   * @param {string} albumId
+   * @returns
+   */
   getAlbum(albumId: string) {
     this._query = `${this._apiBaseUrl}albums/${albumId}`;
 
     return this._returnResponse(this._query);
   }
 
+  /**
+   * Helper function.
+   *
+   * @param {string} query
+   * @returns
+   */
   _returnResponse(query: string) {
     return this._http.get(query).map(response => response.json());
   }

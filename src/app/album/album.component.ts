@@ -4,6 +4,8 @@ import { Album } from '../shared/models/Album';
 import { ActivatedRoute } from '@angular/router';
 import { TruncatePipe } from '../shared/pipes/truncate.pipe';
 
+declare var ENV: string;
+
 @Component({
     selector: 'as-album',
     pipes: [TruncatePipe],
@@ -24,7 +26,9 @@ export class AlbumComponent implements OnInit {
    * Get the artist information from the Spotify Service.
    */
   ngOnInit() {
-    console.log('Album component initialized');
+    if (ENV !== 'production') {
+      console.log('Album component initialized');
+    }
 
     this._route.params
       .map(params => params['id'])

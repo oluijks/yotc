@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { SpotifyService } from '../shared/services/spotify.service';
 import { AudioScrobblerService } from '../shared/services/audioscrobbler.service';
@@ -7,12 +7,14 @@ import { ArtistInfo } from '../shared/models/ArtistInfo';
 import { Album } from '../shared/models/Album';
 import { ActivatedRoute } from '@angular/router';
 
+declare var ENV: string;
+
 @Component({
     selector: 'as-artist',
     templateUrl: 'app/artist/artist.html',
     styleUrls: ['app/artist/artist.css']
 })
-export class ArtistComponent {
+export class ArtistComponent implements OnInit {
   id: string;
   artist: Artist[];
   albums: Album[];
@@ -28,7 +30,9 @@ export class ArtistComponent {
    * Get the artist information from the Spotify Service.
    */
   ngOnInit() {
-    console.log('Artist component initialized');
+    if (ENV !== 'production') {
+      console.log('Artist component initialized');
+    }
 
     this._route.params
       .map(params => params['id'])
@@ -57,6 +61,11 @@ export class ArtistComponent {
     });
   }
 
+  /**
+   * Get the albums for a given artist.
+   *
+   * @param {string} albumId
+   */
   _getAlbums(albumId: string) {
     this._spotifyService.getAlbums(albumId)
       .subscribe(albums => {

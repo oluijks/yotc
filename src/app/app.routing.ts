@@ -12,8 +12,6 @@ const appRoutes: Routes = [
     ...AlbumRoutes
 ];
 
-export const appRoutingProviders: any[] = [
-
-];
+export const appRoutingProviders: any[] = [];
 
 export const routing = RouterModule.forRoot(appRoutes);

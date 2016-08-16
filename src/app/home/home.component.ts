@@ -2,6 +2,8 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { SpotifyService } from '../shared/services/spotify.service';
 import { Artist } from '../shared/models/Artist';
 
+declare var ENV: string;
+
 @Component({
   selector: 'as-home',
   templateUrl: 'app/home/home.html',
@@ -20,20 +22,21 @@ export class HomeComponent implements OnInit {
   public disablePrevious: boolean = false;
 
   constructor(private _spotifyService: SpotifyService) {
-
   }
 
+  /**
+   * Search the Spotify API.
+   */
   searchSpotify() {
-    // console.log(`Search term: ${this.searchTerm}`);
-    // console.log(`offset: ${this.offset}`);
-    // console.log(`limit: ${this.limit}`);
     if (this.searchTerm.trim() !== '' && this.searchTerm.trim().length > 2) {
       this._spotifyService.searchSpotify(this.searchTerm, '', this.offset, this.limit)
         .subscribe(
           response => {
             this.searchResult = response.artists.items;
             this.maxResult = response.artists.total;
-            // console.debug(response.artists);
+            if (ENV !== 'production') {
+              console.debug(response.artists);
+            }
         },
         error => { this.errorMessage = <any>error; console.error(this.errorMessage); }
       );
@@ -42,6 +45,11 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  /**
+   * Get next list of artists.
+   *
+   * @returns
+   */
   nextArtists() {
     this.disableNext = false;
     this.disablePrevious = false;
@@ -57,6 +65,11 @@ export class HomeComponent implements OnInit {
     this.searchSpotify();
   }
 
+  /**
+   * Get previous list of artists.
+   *
+   * @returns
+   */
   previousArtists() {
     this.disableNext = false;
     this.disablePrevious = false;
@@ -72,6 +85,9 @@ export class HomeComponent implements OnInit {
     this.searchSpotify();
   }
 
+  /**
+   * Reset variables.
+   */
   resetSearchValues() {
     this.limit = 3;
     this.offset = 0;
@@ -80,7 +96,12 @@ export class HomeComponent implements OnInit {
     this.disablePrevious = false;
   }
 
+  /**
+   * Initialize.
+   */
   ngOnInit() {
-    console.log('Search component initialized');
+    if (ENV !== 'production') {
+      console.log('Search component initialized');
+    }
   }
 }

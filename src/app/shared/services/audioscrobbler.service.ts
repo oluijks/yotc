@@ -58,6 +58,12 @@ export class AudioScrobblerService {
     return this._returnResponse(this._query);
   }
 
+  /**
+   * Helper function.
+   *
+   * @param {string} query
+   * @returns
+   */
   _returnResponse(query: string) {
     return this._http.get(query).map(response => response.json());
   }

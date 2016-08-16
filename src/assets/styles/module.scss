@@ -4,6 +4,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
+  padding-bottom: 15px;
 }
 
 .main-spinner {
@@ -13,21 +14,21 @@
 
 .loader {
   position: absolute;
-  height: 100px;
-  width: 100px;
+  height: 60px;
+  width: 60px;
   top: 50%;
   left: 50%;
-  margin-left: -60px;
-  margin-top: -60px;
+  margin-left: -50px;
+  margin-top: -50px;
   background-size: 100%;
 
-  border: 16px solid #f3f3f3;
+  border: 5px solid #f3f3f3;
   border-radius: 50%;
-  border-top: 16px solid color(primary);
-  border-right: 16px solid color(success);
-  border-bottom: 16px solid color(danger);
-  width: 120px;
-  height: 120px;
+  border-top: 5px solid color(primary);
+  border-right: 5px solid color(success);
+  border-bottom: 5px solid color(danger);
+  width: 100px;
+  height: 100px;
   -webkit-animation: spin 2s linear infinite;
   animation: spin 2s linear infinite;
 }

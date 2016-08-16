@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Year of the cat</title>
+    <base href="/">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui, maximum-scale=1, user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="theme-color" content="#375a7f">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <!-- build:css assets/bundle.css -->
+    <link rel="stylesheet" href="../node_modules/font-awesome/css/font-awesome.css">
+    <!-- app:css -->
+    <link rel="stylesheet" href="/assets/styles/main.css">
+    <!-- endinject -->
+    <!-- endbuild -->
+  </head>
+  <body>
+    <as-main-app>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="text-center center-fix">
+              <h1 class="text-success" style="white-space: nowrap;">
+                <i class="fa fa-spotify" aria-hidden="true"></i> Year of the cat
+              </h1>
+            </div>
+          </div>
+        </div>
+        <div class="loader"></div>
+      </div>
+    </as-main-app>
+    <!-- build:js assets/lib.js -->
+    <!-- Non-module JS libs -->
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
+    <!-- Polyfill(s) for older browsers -->
+    <script src="../node_modules/core-js/client/shim.min.js"></script>
+    <!-- Load libraries -->
+    <script src="../node_modules/zone.js/dist/zone.js"></script>
+    <!-- endbuild -->
+    <!-- build:js assets/app.js -->
+    <script src="tmp/app/bundle.js"></script>
+    <!-- endbuild -->
+    <!-- build:remove -->
+    <script src="../node_modules/systemjs/dist/system.js"></script>
+    <script src="systemjs.conf.js"></script>
+    <script>
+      System.import('app/main.js')
+        .catch(function(err) { console.error(err); });
+    </script>
+    <!-- endbuild -->
+    <script>
+      +(function ($) {
+        'use strict';
+        var YOTC = YOTC || {};
+        YOTC.__version  = 'v0.0.1-alpha';
+        YOTC.__env      = 'production';
+        YOTC.__url      = 'https://year-of-the-cat.firebaseapp.com';
+        window.YOTC     = YOTC;
+        $(document).on('click', '.navbar-collapse.in', function (e) {
+          if ($(e.target).is('a') && $(e.target).attr('class') !== 'dropdown-toggle') {
+            $(this).collapse('hide');
+          }
+        });
+      }(jQuery));
+    </script>
+    <script src="https://www.gstatic.com/firebasejs/3.2.1/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyBu_TBpq4OAb3XgF6KRokz2sPAx_49uPjA",
+        authDomain: "year-of-the-cat.firebaseapp.com",
+        databaseURL: "https://year-of-the-cat.firebaseio.com",
+        storageBucket: "year-of-the-cat.appspot.com",
+      };
+      firebase.initializeApp(config);
+    </script>
+  </body>
+</html>

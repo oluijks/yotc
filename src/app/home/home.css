@@ -1,0 +1,31 @@
+.row {
+    padding-bottom: 15px;
+}
+
+.page-header {
+  padding-bottom: 9.5px;
+  margin: 20px 0 10px;
+}
+
+.searchButton {
+  font-size: 15px;
+}
+
+.searchButton:focus { outline: 0; }
+
+.form-control {
+  padding: 10px 16px 13px;
+}
+
+.list-group-item-heading {
+    padding-bottom: 10px;
+}
+
+.homepage-image {
+  padding-top: 10px;
+  max-height: 70%;
+  max-width: 70%;
+  margin: 0 auto;
+  -webkit-filter: grayscale(1) blur(0.1606425702811245px) sepia(0) saturate(1) opacity(1) brightness(0.24096385542168675) contrast(1) hue-rotate(0deg) invert(0);
+  filter: grayscale(1) blur(0.1606425702811245px) sepia(0) saturate(1) opacity(1) brightness(0.24096385542168675) contrast(1) hue-rotate(0deg) invert(0);
+}

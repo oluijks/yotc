@@ -1,0 +1,51 @@
+<div *ngIf="album" style="padding-top: 30px;">
+
+  <div class="row">
+    <div class="col-md-12">
+      <ol class="breadcrumb">
+        <li><a routerLink="/"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+        <li><a routerLink="/artist/{{ album.artists[0].id }}">{{ album.artists[0].name }}</a></li>
+        <li class="active">{{ album.name }}</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="row">
+
+    <div class="col-md-4">
+      <div *ngIf="album.images.length > 0">
+        <img src="{{ album.images[0].url }}" alt="{{ album.name }}" class="thumbnail" style="max-width: 100%;">
+      </div>
+    </div>
+
+    <div class="col-md-8">
+      <h4 *ngIf="album.artists.length > 0">
+        <span *ngFor="let artist of album.artists">
+            {{ artist.name }}
+        </span>
+      </h4>
+      <h3>{{ album.name }}</h3>
+      <h5>Release date: {{ album.release_date }}</h5>
+      <a class="btn btn-primary btn-block" href="{{ album.external_urls.spotify }}" target="_blank">
+        <i class="fa fa-spotify" aria-hidden="true"></i> View in Spotify
+      </a>
+
+      <hr>
+
+      <div *ngIf="album.tracks.items.length > 0">
+        <h3 class="page-header text-center">Album list</h3>
+        <div class="list-group">
+          <a *ngFor="let track of album.tracks.items" href="{{ track.external_urls.spotify }}#" class="list-group-item" target="_blank">
+            <h4 class="list-group-item-heading">{{ track.name }}</h4>
+            <p class="list-group-item-text" style="color: white;">
+            <small>Track {{ track.track_number }} - {{ millisToMinutesAndSeconds(track.duration_ms) }}</small>
+            </p>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

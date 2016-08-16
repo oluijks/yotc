@@ -1,0 +1,71 @@
+
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="page-header text-center text-success">
+        <i class="fa fa-spotify" aria-hidden="true"></i> Need music?
+      </h1>
+      <p class="lead text-center">Use this app to search for your fav artists...</p>
+      <hr>
+
+      <form autocomplete="off">
+        <div class="input-group form-group">
+          <input type="text"
+                 class="form-control"
+                 name="searchTerm"
+                 placeholder="search for artists"
+                 [(ngModel)]="searchTerm"
+                 (keyup)="searchSpotify()"
+                 (keyup.enter)="searchSpotify()"
+                 autofocus />
+          <span class="input-group-btn">
+            <button class="btn btn-primary searchButton" type="button">
+              <i class="fa fa-search" aria-hidden="true"></i>
+            </button>
+          </span>
+        </div>
+      </form>
+
+      <div class="alert alert-danger" role="alert" *ngIf="errorMessage">{{ errorMessage.statusText }}</div>
+    </div>
+  </div>
+
+
+<div class="row" *ngIf="!searchResult || searchResult.length == 0">
+  <div class="col-md-12 text-center">
+    <img src="https://i.scdn.co/image/3289a47ed673de2f3048d3fd1a499e4b95768859"
+          alt="Year of the cat"
+          class="img-responsive img-circle homepage-image">
+  </div>
+</div>
+
+<div class="row" *ngIf="searchResult && searchResult.length > 0">
+  <div class="col-md-12">
+    <div class="pull-right">
+      <button (click)="previousArtists()" class="btn btn-default" [disabled]="disablePrevious">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+      </button>
+      <button (click)="nextArtists()" class="btn btn-primary" [disabled]="disableNext">
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="row" *ngIf="searchResult && searchResult.length > 0">
+  <div class="col-md-12">
+    <div class="list-group animated fadeInLeft">
+      <a *ngFor="let result of searchResult" routerLink="artist/{{ result.id }}" class="list-group-item">
+        <span *ngIf="result.followers.total" class="badge">
+          <i class="fa fa-users" aria-hidden="true"></i>
+            {{ result.followers.total }}
+          </span>
+        <h4 class="list-group-item-heading">{{ result.name }}</h4>
+        <div style="color: white" *ngIf="result.genres">
+          <span *ngFor="let genres of result.genres" class="list-group-item-text">
+            <span class="label label-primary">{{ genres }}</span>
+          </span>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>

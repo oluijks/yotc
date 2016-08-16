@@ -1,0 +1,42 @@
+
+<div *ngIf="artist" class="container">
+  <div class="row">
+    <div class="md-col-12">
+      <ol class="breadcrumb">
+        <li><a routerLink="/"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+        <li class="active">{{ artist.name }}</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 col-md-3">
+      <img class="artist-header-image img-responsive img-circle center-block"
+           src="{{ artist.images[0].url }}" alt="{{ artist.name }}">
+    </div>
+    <div class="col-xs-12 col-md-9">
+      <h1 class="text-primary">{{ artist.name }}</h1>
+      <p *ngIf="artistInfo" [innerHTML]="artistInfo">Loading artist info...</p>
+      <div style="color: white" *ngIf="artist.genres">
+        <span *ngFor="let genre of artist.genres" class="list-group-item-text">
+          <span class="label label-default">{{ genre }}</span>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<div *ngIf="artist" class="row">
+  <div class="md-col-12">
+    <h2 class="page-header text-center">Albums</h2>
+    <div *ngFor="let album of albums" class="col-sm-12 col-md-4">
+      <div class="thumbnail img-responsive">
+        <a routerLink="/album/{{ album.id }}">
+          <img src="{{ album.images[0].url }}" alt="{{ album.name }}">
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,81 @@
+/**
+ * Bootstrap overrides
+ */
+
+.panel-title {
+	font-weight: bold;
+	color: color(primary);
+}
+
+html, html a {
+  -webkit-font-smoothing: antialiased !important;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+}
+
+html { overflow-y: scroll; }
+
+body {
+  /* padding-top: 70px; */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+h1 { font-size: 29px; }
+
+// Navbar menu item animation.
+// Todo: move this to component css?
+.navbar-toggle {
+    border: none;
+    background: transparent !important;
+}
+
+.navbar-toggle:hover {
+    background: transparent !important;
+}
+
+.navbar-toggle .icon-bar {
+    width: 22px;
+    transition: all 0.2s;
+}
+
+.navbar-toggle .top-bar {
+    transform: rotate(45deg);
+    transform-origin: 10% 10%;
+}
+
+.navbar-toggle .middle-bar {
+    opacity: 0;
+}
+
+.navbar-toggle .bottom-bar {
+    transform: rotate(-45deg);
+    transform-origin: 10% 90%;
+}
+
+.navbar-toggle.collapsed .top-bar {
+    transform: rotate(0);
+}
+
+.navbar-toggle.collapsed .middle-bar {
+    opacity: 1;
+}
+
+.navbar-toggle.collapsed .bottom-bar {
+    transform: rotate(0);
+}
+
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  h1 {
+    font-size: 39px;
+  }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {}

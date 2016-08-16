@@ -1,0 +1,33 @@
+.container, .row {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.page-header {
+  padding-bottom: 9.5px;
+  margin: -16px 0 21px;
+}
+
+.artist-header-image {
+  max-width: 200px;
+  height: auto;
+}
+
+.thumbnail {
+  padding: 1px;
+}
+
+.thumbnail>img, .thumbnail a>img {
+  height: 356px;
+}
+
+.caption p {
+  margin: 0;
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 992px) {
+.artist-header-image {
+    width: 200px;
+  }
+}

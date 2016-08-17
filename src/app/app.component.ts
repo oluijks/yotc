@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
    */
   ngOnInit() {
     if (ENV !== 'production') {
-      console.log('App component initialized');
+      console.log('App component initialized.');
     }
   }
 }

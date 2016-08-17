@@ -31,7 +31,7 @@ export class ArtistComponent implements OnInit {
    */
   ngOnInit() {
     if (ENV !== 'production') {
-      console.log('Artist component initialized');
+      console.log('Artist component initialized.');
     }
 
     this._route.params

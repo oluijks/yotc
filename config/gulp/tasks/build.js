@@ -14,62 +14,75 @@ var envVars = require('../utils/env-vars');
 require('@ngstarter/systemjs-extension')(config);
 
 gulp.task('build', function (done) {
-    runSequence('test', 'build-systemjs', 'build-assets', done);
+  runSequence('test', 'build-systemjs', 'build-assets', done);
 });
 
 /* Concat and minify/uglify all css, js, and copy fonts */
 gulp.task('build-assets', function (done) {
-    runSequence('clean-build', ['sass', 'fonts'], function () {
-        gulp.src(config.app + '**/*.html', {
-            base: config.app
-        })
-        .pipe(gulp.dest(config.build.app));
+  runSequence('clean-build', ['sass', 'fonts'], function () {
+    gulp.src(config.app + '**/*.html', {
+      base: config.app
+    })
+      .pipe(gulp.dest(config.build.app));
 
-        gulp.src(config.app + '**/*.css', {
-            base: config.app
-        })
-        .pipe(cssnano())
-        .pipe(gulp.dest(config.build.app));
+    gulp.src(config.app + '**/*.css', {
+      base: config.app
+    })
+      .pipe(cssnano())
 
-        gulp.src(config.src + 'favicon.ico')
-        .pipe(gulp.dest(config.build.path));
+      .pipe(gulp.dest(config.build.app));
 
-        gulp.src(config.assetsPath.images + '**/*.*', {
-            base: config.assetsPath.images
-        })
-        .pipe(gulp.dest(config.build.assetPath + 'images'));
+    gulp.src(config.src + 'favicon.ico')
+      .pipe(gulp.dest(config.build.path));
 
-        gulp.src(config.index)
-            .pipe(useref())
-            .pipe(gulpif('assets/lib.js', uglify()))
-            .pipe(gulpif('*.css', cssnano()))
-            .pipe(gulpif('!*.html', rev()))
-            .pipe(revReplace())
-            .pipe(gulp.dest(config.build.path))
-            .on('finish', done);
-    });
+    gulp.src(config.src + 'manifest.json')
+      .pipe(gulp.dest(config.build.path));
+
+    gulp.src(config.src + 'manifest.html')
+      .pipe(gulp.dest(config.build.path));
+
+    gulp.src(config.src + 'offline.html')
+      .pipe(gulp.dest(config.build.path));
+
+    gulp.src(config.src + 'yotc.appcache')
+      .pipe(gulp.dest(config.build.path));
+
+    gulp.src(config.assetsPath.images + '**/*.*', {
+      base: config.assetsPath.images
+    })
+      .pipe(gulp.dest(config.build.assetPath + 'images'));
+
+    gulp.src(config.index)
+      .pipe(useref())
+      .pipe(gulpif('assets/lib.js', uglify()))
+      .pipe(gulpif('*.css', cssnano()))
+      .pipe(gulpif('!*.html', rev()))
+      .pipe(revReplace())
+      .pipe(gulp.dest(config.build.path))
+      .on('finish', done);
+  });
 });
 
 /* Copy fonts in packages */
 gulp.task('fonts', function () {
-    gulp.src(config.assetsPath.fonts + '**/*.*', {
-        base: config.assetsPath.fonts
-    })
+  gulp.src(config.assetsPath.fonts + '**/*.*', {
+    base: config.assetsPath.fonts
+  })
     .pipe(gulp.dest(config.build.fonts));
 
-    gulp.src([
-        'node_modules/font-awesome/fonts/*.*'
-    ])
+  gulp.src([
+    'node_modules/font-awesome/fonts/*.*'
+  ])
     .pipe(gulp.dest(config.build.fonts));
 });
 
 gulp.task('env', function () {
-    return gulp.src(config.config + 'env/env.ts')
-        .pipe(gulpTemplate({
-            env: envVars || {}
-        }))
-        .pipe(gulp.dest(config.app + 'shared/constant'))
-        .on('finish', function () {
-            util.log(config.app + 'shared/constant/env.ts is generated successfully');
-        });
+  return gulp.src(config.config + 'env/env.ts')
+    .pipe(gulpTemplate({
+      env: envVars || {}
+    }))
+    .pipe(gulp.dest(config.app + 'shared/constant'))
+    .on('finish', function () {
+      util.log(config.app + 'shared/constant/env.ts is generated successfully');
+    });
 });

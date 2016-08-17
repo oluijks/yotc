@@ -101,7 +101,7 @@ export class HomeComponent implements OnInit {
    */
   ngOnInit() {
     if (ENV !== 'production') {
-      console.log('Search component initialized');
+      console.log('Search component initialized.');
     }
   }
 }

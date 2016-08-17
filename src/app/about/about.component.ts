@@ -20,7 +20,7 @@ export class AboutComponent implements OnInit {
    */
   ngOnInit() {
     if (ENV !== 'production') {
-      console.log('About component initialized');
+      console.log('About component initialized.');
     }
   }
 }

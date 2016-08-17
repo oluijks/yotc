@@ -27,7 +27,7 @@ export class AlbumComponent implements OnInit {
    */
   ngOnInit() {
     if (ENV !== 'production') {
-      console.log('Album component initialized');
+      console.log('Album component initialized.');
     }
 
     this._route.params

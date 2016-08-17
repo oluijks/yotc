@@ -1,5 +1,11 @@
 {
   "projects": {
     "default": "year-of-the-cat"
-  }
+  },
+  "rewrites": [
+    {
+      "source": "/manifest.json",
+      "destination": "/manifest.json"
+    }
+  ]
 }

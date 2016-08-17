@@ -13,7 +13,7 @@ export class AboutComponent implements OnInit {
    *
    * @type {string}
    */
-  public version: string = 'v0.0.1-alpha';
+  public version: string = 'v0.0.2-alpha';
 
   /**
    * Initialize.

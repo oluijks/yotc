@@ -1,6 +1,6 @@
 <div *ngIf="artist" class="container">
   <div class="row">
-    <div class="md-col-12">
+    <div class="col-md-12">
       <ol class="breadcrumb">
         <li><a routerLink="/"><i class="fa fa-home" aria-hidden="true"></i></a></li>
         <li class="active">{{ artist.name }}</li>
@@ -23,15 +23,18 @@
       </div>
     </div>
   </div>
-</div>
 
-<hr>
+  <hr>
 
-<div *ngIf="artist" class="row">
-  <div class="md-col-12">
-    <h2 class="page-header text-center">Albums</h2>
-    <div *ngFor="let album of albums" class="col-sm-12 col-md-4">
-      <div class="thumbnail img-responsive">
+  <div *ngIf="artist" class="row">
+    <div class="col-md-12">
+      <h2 class="page-header text-center">Albums</h2>
+    </div>
+  </div>
+
+  <div *ngIf="artist" class="row">
+    <div *ngFor="let album of albums" class="col-xs-12 col-md-4">
+      <div class="thumbnail">
         <a routerLink="/album/{{ album.id }}">
           <img src="{{ album.images[0].url }}" alt="{{ album.name }}">
         </a>

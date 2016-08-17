@@ -93,8 +93,8 @@
         }, false);
 
         // Handle install.
-        function handleInstall(ev){
-          const date = new Date(ev.timeStamp / 1000);
+        function handleInstall (e){
+          const date = new Date(e.timeStamp / 1000);
           console.log(`Year of the cat app got installed at ${date.toTimeString()}`);
         }
 

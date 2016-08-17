@@ -16,9 +16,11 @@
   padding: 1px;
 }
 
+/*
 .thumbnail>img, .thumbnail a>img {
-  height: 356px;
+  height: 350px;
 }
+*/
 
 .caption p {
   margin: 0;

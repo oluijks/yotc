@@ -1,9 +1,22 @@
-.container {
-  padding-top: 30px;
+.container, .row {
   padding-bottom: 30px;
 }
 
 .page-header {
   padding-bottom: 9.5px;
-  margin: 26px 0 21px;
+  margin: -16px 0 21px;
 }
+
+.breadcrumb {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.breadcrumb li {
+    display: inline;
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {}

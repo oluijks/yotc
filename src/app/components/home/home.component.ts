@@ -1,14 +1,14 @@
 import { Component, OnInit, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
-import { SpotifyService } from '../shared/services/spotify.service';
-import { Artist } from '../shared/models/Artist';
+import { SpotifyService } from '../../shared/services/spotify.service';
+import { Artist } from '../../shared/models/Artist';
 import { ActivatedRoute } from '@angular/router';
 
 declare var ENV: string;
 
 @Component({
   selector: 'as-home',
-  templateUrl: 'app/home/home.html',
-  styleUrls: ['app/home/home.css'],
+  templateUrl: 'app/components/home/home.html',
+  styleUrls: ['app/components/home/home.css'],
   providers: [SpotifyService],
   changeDetection: ChangeDetectionStrategy.OnPush
 })

@@ -1,12 +1,12 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Title }     from '@angular/platform-browser';
+import { Title } from '@angular/platform-browser';
 
 declare var ENV: string;
 
 @Component({
   selector: 'as-about',
-  templateUrl: 'app/about/about.html',
-  styleUrls: ['app/about/about.css']
+  templateUrl: 'app/components/about/about.html',
+  styleUrls: ['app/components/about/about.css']
 })
 export class AboutComponent implements OnInit, OnDestroy {
   /**

@@ -89,6 +89,7 @@ module.exports = function () {
         var browserSync = {
             dev: {
                 port: 3000,
+                browser: "google-chrome",
                 server: {
                     baseDir: './src/',
                     middleware: [historyApiFallback()],

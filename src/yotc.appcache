@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# 2016-08-17:v31
+# 2016-08-17:v32
 
 CACHE:
 /favicon.ico
@@ -8,8 +8,8 @@ CACHE:
 /assets/bundle-c331bfb315.css
 /assets/lib-2cf12bf509.js
 https://www.gstatic.com/firebasejs/3.2.1/firebase.js
-/app/about/about.css
-/app/about/about.html
+/app/components/about/about.css
+/app/components/about/about.html
 /app/album/album.css
 /app/album/album.html
 /app/artist/artist.css
@@ -17,7 +17,7 @@ https://www.gstatic.com/firebasejs/3.2.1/firebase.js
 /app/home/home.css
 /app/home/home.html
 /app/shared/components/navbar/navbar.html
-/app/app.html
+/app/components/app.html
 /assets/images/icons/android-chrome-144x144.png
 /assets/images/icons/android-chrome-192x192.png
 /assets/images/icons/android-chrome-36x36.png

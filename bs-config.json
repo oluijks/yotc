@@ -1,3 +1,5 @@
 {
-  "notify": false
+  "notify": false,
+  "open": false,
+  "browser": "google-chrome"
 }

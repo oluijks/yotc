@@ -4,14 +4,17 @@ Year of the cat (a simple spotify app)
 ## Introduction
 Just a fun little app I'm making to learn Angular2 and TypeScript. Based upon a great tutorial by Brad Traversy I've seen on YouTube.
 
+You can see it in action here: [https://year-of-the-cat.firebaseapp.com](https://year-of-the-cat.firebaseapp.com)
+
 ## What does it do?
-  1. Search for artists using the Spotify API
-  2. Show a list of artists.
-  3. Click on the artists for a bio (Scrobbler API) and album list
-  4. Click on an album to see the details and a track list
-  5. Click on a track to listen to it on the Spotify page
-  6. Shows an about page
-  7. AppCache for offline support
+1. Search for artists using the Spotify API
+2. Show a list of artists.
+3. Click on the artists for a bio (Scrobbler API) and album list (Spotify API)
+4. Click on an album to see the details and a track list
+5. Click on a track to listen to it on the Spotify page
+  *. (play locally)
+6. Shows an about page
+7. AppCache for offline support
 
 ## Tools used
   1. [Extensible Angular2 Starter using TypeScript 1.0.0-rc5](https://github.com/antonybudianto/angular2-starter)

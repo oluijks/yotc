@@ -25,7 +25,7 @@ You can see it in action here: [https://year-of-the-cat.firebaseapp.com](https:/
 
 ## Todo
   1. Login to Spotify
-  2. <s>Search for tracks</s>
+  2. Search for tracks
   3. Favourite artists, albums, playlists
   4. (Personal) app settings
   5. Pagination of artists list

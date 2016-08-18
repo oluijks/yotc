@@ -4,7 +4,7 @@ declare var ENV: string;
 
 @Component({
     selector: 'as-navbar',
-    templateUrl: 'app/shared/navbar/navbar.html',
+    templateUrl: 'app/shared/components/navbar/navbar.html',
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NavbarComponent implements OnInit {

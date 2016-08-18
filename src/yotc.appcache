@@ -1,19 +1,19 @@
 CACHE MANIFEST
-# 2016-08-17:v32
+# 2016-08-17:v33
 
 CACHE:
 /favicon.ico
 /manifest.json
-/assets/app-f5c90c6075.js
+/assets/app-299923c6b0.js
 /assets/bundle-c331bfb315.css
 /assets/lib-2cf12bf509.js
 https://www.gstatic.com/firebasejs/3.2.1/firebase.js
 /app/components/about/about.css
 /app/components/about/about.html
-/app/album/album.css
-/app/album/album.html
-/app/artist/artist.css
-/app/artist/artist.html
+/app/components/album/album.css
+/app/components/album/album.html
+/app/components/artist/artist.css
+/app/components/artist/artist.html
 /app/components/home/home.css
 /app/components/home/home.html
 /app/shared/components/navbar/navbar.html

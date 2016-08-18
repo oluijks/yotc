@@ -9,10 +9,6 @@
   </div>
 
   <div class="row">
-    <div class="col-xs-12 col-md-3">
-      <img class="artist-header-image img-responsive img-circle center-block"
-           src="{{ artist.images[0].url }}" alt="{{ artist.name }}">
-    </div>
     <div class="col-xs-12 col-md-9">
       <h1 class="text-primary">{{ artist.name }}</h1>
       <p *ngIf="artistInfo" [innerHTML]="artistInfo">Loading artist info...</p>
@@ -22,13 +18,17 @@
         </span>
       </div>
     </div>
+    <div class="col-xs-12 col-md-3">
+      <img class="artist-header-image img-responsive img-circle center-block"
+           src="{{ artist.images[0].url }}" alt="{{ artist.name }}">
+    </div>
   </div>
 
   <hr>
 
   <div *ngIf="artist" class="row">
     <div class="col-md-12">
-      <h2 class="page-header text-center">Albums</h2>
+      <h2 class="text-center">Albums</h2>
     </div>
   </div>
 

@@ -1,6 +1,7 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
 import { SpotifyService } from '../shared/services/spotify.service';
 import { Artist } from '../shared/models/Artist';
+import { ActivatedRoute } from '@angular/router';
 
 declare var ENV: string;
 
@@ -11,7 +12,7 @@ declare var ENV: string;
   providers: [SpotifyService],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
   public errorMessage: string;
   public searchTerm: string = '';
   public offset: number = 0;
@@ -20,8 +21,11 @@ export class HomeComponent implements OnInit {
   public maxResult: number;
   public disableNext: boolean = false;
   public disablePrevious: boolean = false;
+  sub: any;
+  public linkTitle: any;
 
-  constructor(private _spotifyService: SpotifyService) {
+  constructor(private route: ActivatedRoute, private _spotifyService: SpotifyService) {
+
   }
 
   /**
@@ -100,8 +104,16 @@ export class HomeComponent implements OnInit {
    * Initialize.
    */
   ngOnInit() {
+
+    // Set data from route (just an example)
+    this.sub = this.route.data.subscribe(v => { this.linkTitle = v; });
+
     if (ENV !== 'production') {
       console.log('Search component initialized.');
     }
+  }
+
+  ngOnDestroy() {
+    this.sub.unsubscribe();
   }
 }

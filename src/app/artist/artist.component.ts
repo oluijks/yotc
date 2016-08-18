@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 import { SpotifyService } from '../shared/services/spotify.service';
 import { AudioScrobblerService } from '../shared/services/audioscrobbler.service';
@@ -14,11 +14,12 @@ declare var ENV: string;
     templateUrl: 'app/artist/artist.html',
     styleUrls: ['app/artist/artist.css']
 })
-export class ArtistComponent implements OnInit {
+export class ArtistComponent implements OnInit, OnDestroy {
   id: string;
   artist: Artist[];
   albums: Album[];
   artistInfo: ArtistInfo[];
+  sub: any;
 
   constructor(
     private _spotifyService: SpotifyService,
@@ -34,7 +35,7 @@ export class ArtistComponent implements OnInit {
       console.log('Artist component initialized.');
     }
 
-    this._route.params
+    this.sub = this._route.params
       .map(params => params['id'])
       .subscribe((id: any) => {
       this._spotifyService.getArtist(id)
@@ -45,7 +46,10 @@ export class ArtistComponent implements OnInit {
       });
       this._getAlbums(id);
     });
+  }
 
+  ngOnDestroy() {
+    this.sub.unsubscribe();
   }
 
   /**

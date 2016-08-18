@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { SpotifyService } from '../shared/services/spotify.service';
 import { Album } from '../shared/models/Album';
 import { ActivatedRoute } from '@angular/router';
@@ -12,10 +12,11 @@ declare var ENV: string;
     templateUrl: 'app/album/album.html',
     styleUrls: ['app/album/album.css']
 })
-export class AlbumComponent implements OnInit {
+export class AlbumComponent implements OnInit, OnDestroy {
   id: string;
   album: Album[];
   public errorMessage: string;
+  sub: any;
 
   constructor(
     private _spotifyService: SpotifyService,
@@ -30,7 +31,7 @@ export class AlbumComponent implements OnInit {
       console.log('Album component initialized.');
     }
 
-    this._route.params
+    this.sub = this._route.params
       .map(params => params['id'])
       .subscribe((id: any) => {
       this._spotifyService.getAlbum(id)
@@ -41,6 +42,10 @@ export class AlbumComponent implements OnInit {
         error => { this.errorMessage = <any>error; console.error(this.errorMessage); }
       );
     });
+  }
+
+  ngOnDestroy() {
+    this.sub.unsubscribe();
   }
 
   millisToMinutesAndSeconds(millis: number) {

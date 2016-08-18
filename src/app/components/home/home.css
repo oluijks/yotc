@@ -2,8 +2,10 @@
     padding-bottom: 15px;
 }
 
+h1 { font-size: 39px; }
+
 .page-header {
-  padding-bottom: 9.5px;
+  padding-bottom: 50px;
   margin: 20px 0 10px;
 }
 
@@ -15,6 +17,8 @@
 
 .form-control {
   padding: 10px 16px 13px;
+  text-align: center;
+  font-size: 23px;
 }
 
 .list-group-item-heading {

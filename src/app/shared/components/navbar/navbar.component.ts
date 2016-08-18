@@ -8,7 +8,12 @@ declare var ENV: string;
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NavbarComponent implements OnInit {
-    @Input() brand: string;
+  /**
+   *
+   *
+   * @type {string}
+   */
+  @Input() brand: string;
 
   /**
    * Initialize.

@@ -18,5 +18,9 @@
     display: inline;
 }
 
+.list-group-item-text {
+  color: #fff;
+}
+
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {}

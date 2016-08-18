@@ -13,17 +13,82 @@ declare var ENV: string;
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomeComponent implements OnInit, OnDestroy {
+  /**
+   *
+   *
+   * @type {string}
+   */
   public errorMessage: string;
+
+  /**
+   *
+   *
+   * @type {string}
+   */
   public searchTerm: string = '';
+
+  /**
+   *
+   *
+   * @type {number}
+   */
   public offset: number = 0;
+
+  /**
+   *
+   *
+   * @type {number}
+   */
   public limit: number = 3;
+
+  /**
+   *
+   *
+   * @type {Artist[]}
+   */
   public searchResult: Artist[];
+
+  /**
+   *
+   *
+   * @type {number}
+   */
   public maxResult: number;
+
+  /**
+   *
+   *
+   * @type {boolean}
+   */
   public disableNext: boolean = false;
+
+  /**
+   *
+   *
+   * @type {boolean}
+   */
   public disablePrevious: boolean = false;
+
+  /**
+   *
+   *
+   * @type {*}
+   */
   sub: any;
+
+  /**
+   *
+   *
+   * @type {*}
+   */
   public linkTitle: any;
 
+  /**
+   * Creates an instance of HomeComponent.
+   *
+   * @param {ActivatedRoute} route
+   * @param {SpotifyService} _spotifyService
+   */
   constructor(private route: ActivatedRoute, private _spotifyService: SpotifyService) {
 
   }
@@ -45,7 +110,7 @@ export class HomeComponent implements OnInit, OnDestroy {
         error => { this.errorMessage = <any>error; console.error(this.errorMessage); }
       );
     } else {
-      this.resetSearchValues();
+      this._resetSearchValues();
     }
   }
 
@@ -92,7 +157,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   /**
    * Reset variables.
    */
-  resetSearchValues() {
+  _resetSearchValues() {
     this.limit = 3;
     this.offset = 0;
     this.searchResult = [];
@@ -104,15 +169,17 @@ export class HomeComponent implements OnInit, OnDestroy {
    * Initialize.
    */
   ngOnInit() {
-
-    // Set data from route (just an example)
-    this.sub = this.route.data.subscribe(v => { this.linkTitle = v; });
-
     if (ENV !== 'production') {
       console.log('Search component initialized.');
     }
+
+    // Set data from route (just an example)
+    this.sub = this.route.data.subscribe(v => { this.linkTitle = v; });
   }
 
+  /**
+   * Clean up.
+   */
   ngOnDestroy() {
     this.sub.unsubscribe();
   }

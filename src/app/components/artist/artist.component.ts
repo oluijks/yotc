@@ -15,12 +15,48 @@ declare var ENV: string;
     styleUrls: ['app/components/artist/artist.css']
 })
 export class ArtistComponent implements OnInit, OnDestroy {
+  /**
+   *
+   *
+   * @type {string}
+   */
   id: string;
+
+  /**
+   *
+   *
+   * @type {Artist[]}
+   */
   artist: Artist[];
+
+  /**
+   *
+   *
+   * @type {Album[]}
+   */
   albums: Album[];
+
+  /**
+   *
+   *
+   * @type {ArtistInfo[]}
+   */
   artistInfo: ArtistInfo[];
+
+  /**
+   *
+   *
+   * @type {*}
+   */
   sub: any;
 
+  /**
+   * Creates an instance of ArtistComponent.
+   *
+   * @param {SpotifyService} _spotifyService
+   * @param {AudioScrobblerService} _audioScrobblerService
+   * @param {ActivatedRoute} _route
+   */
   constructor(
     private _spotifyService: SpotifyService,
     private _audioScrobblerService: AudioScrobblerService,
@@ -28,13 +64,14 @@ export class ArtistComponent implements OnInit, OnDestroy {
   ) {}
 
   /**
-   * Get the artist information from the Spotify Service.
+   * initialize.
    */
   ngOnInit() {
     if (ENV !== 'production') {
       console.log('Artist component initialized.');
     }
 
+    // Get the artist information from the Spotify Service.
     this.sub = this._route.params
       .map(params => params['id'])
       .subscribe((id: any) => {
@@ -48,6 +85,9 @@ export class ArtistComponent implements OnInit, OnDestroy {
     });
   }
 
+  /**
+   * Clean up.
+   */
   ngOnDestroy() {
     this.sub.unsubscribe();
   }

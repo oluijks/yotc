@@ -9,8 +9,8 @@
   </div>
 
   <div class="row">
-    <div class="col-xs-12 col-md-9">
-      <h1 class="text-primary">{{ artist.name }}</h1>
+    <div class="col-xs-12 col-md-9 artist-bio">
+      <h1 class="text-primary page-header">{{ artist.name }}</h1>
       <p *ngIf="artistInfo" [innerHTML]="artistInfo">Loading artist info...</p>
       <div style="color: white" *ngIf="artist.genres">
         <span *ngFor="let genre of artist.genres" class="list-group-item-text">
@@ -28,7 +28,7 @@
 
   <div *ngIf="artist" class="row">
     <div class="col-md-12">
-      <h2 class="text-center">Albums</h2>
+      <h3 class="page-header text-center">Albums</h3>
     </div>
   </div>
 

@@ -4,12 +4,13 @@
 
 .page-header {
   padding-bottom: 9.5px;
-  margin: 26px 0 21px;
+  margin: -16px 0 21px;
 }
 
 .artist-header-image {
   max-width: 200px;
   height: auto;
+  padding: 25px;
 }
 
 .thumbnail {
@@ -18,7 +19,7 @@
 
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 992px) {
-.artist-header-image {
+  .artist-header-image {
     width: 200px;
   }
 

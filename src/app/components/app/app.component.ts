@@ -8,8 +8,16 @@ declare var ENV: string;
   templateUrl: 'app/components/app/app.html'
 })
 export class AppComponent implements OnInit {
+  /**
+   * Application brand name.
+   *
+   * @type {string}
+   */
   public appBrand: string;
 
+  /**
+   * Creates an instance of AppComponent.
+   */
   constructor() {
     this.appBrand = CONSTANTS.MAIN.APP.BRAND;
   }

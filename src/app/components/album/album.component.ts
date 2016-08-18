@@ -13,24 +13,54 @@ declare var ENV: string;
     styleUrls: ['app/components/album/album.css']
 })
 export class AlbumComponent implements OnInit, OnDestroy {
+  /**
+   *
+   *
+   * @type {string}
+   */
   id: string;
+
+  /**
+   *
+   *
+   * @type {Album[]}
+   */
   album: Album[];
+
+  /**
+   *
+   *
+   * @type {string}
+   */
   public errorMessage: string;
+
+  /**
+   *
+   *
+   * @type {*}
+   */
   sub: any;
 
+  /**
+   * Creates an instance of AlbumComponent.
+   *
+   * @param {SpotifyService} _spotifyService
+   * @param {ActivatedRoute} _route
+   */
   constructor(
     private _spotifyService: SpotifyService,
     private _route: ActivatedRoute
   ) {}
 
   /**
-   * Get the artist information from the Spotify Service.
+   * initialize.
    */
   ngOnInit() {
     if (ENV !== 'production') {
       console.log('Album component initialized.');
     }
 
+    // Get the artist information from the Spotify Service.
     this.sub = this._route.params
       .map(params => params['id'])
       .subscribe((id: any) => {
@@ -44,13 +74,23 @@ export class AlbumComponent implements OnInit, OnDestroy {
     });
   }
 
+  /**
+   * Clean up.
+   */
   ngOnDestroy() {
     this.sub.unsubscribe();
   }
 
+  /**
+   * Convert ms to ms.
+   *
+   * @param {number} millis
+   * @returns
+   */
   millisToMinutesAndSeconds(millis: number) {
     let minutes: number = Math.floor(millis / 60000);
     let seconds: any = ((millis % 60000) / 1000).toFixed(0);
+
     return minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
   }
 }

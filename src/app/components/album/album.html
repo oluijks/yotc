@@ -19,13 +19,16 @@
     </div>
 
     <div class="col-md-8">
+      <!--
       <h4 *ngIf="album.artists.length > 0">
         <span *ngFor="let artist of album.artists">
             {{ artist.name }}
         </span>
       </h4>
+      -->
       <h3>{{ album.name }}</h3>
       <h5>Release date: {{ album.release_date }}</h5>
+      <br>
       <a class="btn btn-primary btn-block" href="{{ album.external_urls.spotify }}" target="_blank">
         <i class="fa fa-spotify" aria-hidden="true"></i> View in Spotify
       </a>
@@ -35,10 +38,10 @@
       <div *ngIf="album.tracks.items.length > 0">
         <h3 class="page-header text-center">Album list</h3>
         <div class="list-group">
-          <a *ngFor="let track of album.tracks.items" href="{{ track.external_urls.spotify }}#" class="list-group-item" target="_blank">
+          <a *ngFor="let track of album.tracks.items" href="{{ track.external_urls.spotify }}" class="list-group-item" target="_blank">
             <h4 class="list-group-item-heading">{{ track.name }}</h4>
-            <p class="list-group-item-text" style="color: white;">
-            <small>Track {{ track.track_number }} - {{ millisToMinutesAndSeconds(track.duration_ms) }}</small>
+            <p class="list-group-item-text">
+              <small>Track {{ track.track_number }} - {{ millisToMinutesAndSeconds(track.duration_ms) }}</small>
             </p>
           </a>
         </div>

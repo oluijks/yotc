@@ -34,7 +34,7 @@
 
   <div *ngIf="artist" class="row">
     <div *ngFor="let album of albums" class="col-xs-12 col-md-4">
-      <div class="thumbnail">
+      <div class="thumbnail thumbnail-albums">
         <a routerLink="/album/{{ album.id }}">
           <img src="{{ album.images[0].url }}" alt="{{ album.name }}">
         </a>

@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Title } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
 import { APP_PROVIDERS } from './app.providers';
@@ -28,7 +28,7 @@ import { AudioScrobblerService } from './shared/services/audioscrobbler.service'
     AlbumModule,
     routing
   ],
-  providers: [HTTP_PROVIDERS, APP_PROVIDERS, appRoutingProviders, SpotifyService, AudioScrobblerService],
+  providers: [HTTP_PROVIDERS, APP_PROVIDERS, appRoutingProviders, SpotifyService, AudioScrobblerService, Title],
   bootstrap: [AppComponent]
 })
 export class AppModule {

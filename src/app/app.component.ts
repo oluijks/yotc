@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 import { CONSTANTS } from './shared';
 
 declare var ENV: string;

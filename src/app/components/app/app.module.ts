@@ -9,8 +9,8 @@ import { appRoutingProviders, routing } from './app.routing';
 import { NavbarModule } from '../../shared';
 import { HomeModule } from '../home/home.module';
 import { AboutModule } from '../about/about.module';
-import { ArtistModule } from '../../artist/artist.module';
-import { AlbumModule } from '../../album/album.module';
+import { ArtistModule } from '../artist/artist.module';
+import { AlbumModule } from '../album/album.module';
 
 import { HTTP_PROVIDERS } from '@angular/http';
 import { SpotifyService } from '../../shared/services/spotify.service';

@@ -1,18 +1,18 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 
-import { SpotifyService } from '../shared/services/spotify.service';
-import { AudioScrobblerService } from '../shared/services/audioscrobbler.service';
-import { Artist } from '../shared/models/Artist';
-import { ArtistInfo } from '../shared/models/ArtistInfo';
-import { Album } from '../shared/models/Album';
+import { SpotifyService } from '../../shared/services/spotify.service';
+import { AudioScrobblerService } from '../../shared/services/audioscrobbler.service';
+import { Artist } from '../../shared/models/Artist';
+import { ArtistInfo } from '../../shared/models/ArtistInfo';
+import { Album } from '../../shared/models/Album';
 import { ActivatedRoute } from '@angular/router';
 
 declare var ENV: string;
 
 @Component({
     selector: 'as-artist',
-    templateUrl: 'app/artist/artist.html',
-    styleUrls: ['app/artist/artist.css']
+    templateUrl: 'app/components/artist/artist.html',
+    styleUrls: ['app/components/artist/artist.css']
 })
 export class ArtistComponent implements OnInit, OnDestroy {
   id: string;

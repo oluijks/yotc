@@ -1,16 +1,16 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { SpotifyService } from '../shared/services/spotify.service';
-import { Album } from '../shared/models/Album';
+import { SpotifyService } from '../../shared/services/spotify.service';
+import { Album } from '../../shared/models/Album';
 import { ActivatedRoute } from '@angular/router';
-import { TruncatePipe } from '../shared/pipes/truncate.pipe';
+import { TruncatePipe } from '../../shared/pipes/truncate.pipe';
 
 declare var ENV: string;
 
 @Component({
     selector: 'as-album',
     pipes: [TruncatePipe],
-    templateUrl: 'app/album/album.html',
-    styleUrls: ['app/album/album.css']
+    templateUrl: 'app/components/album/album.html',
+    styleUrls: ['app/components/album/album.css']
 })
 export class AlbumComponent implements OnInit, OnDestroy {
   id: string;

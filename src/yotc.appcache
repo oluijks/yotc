@@ -4,7 +4,7 @@ CACHE MANIFEST
 CACHE:
 /favicon.ico
 /manifest.json
-/assets/app-20dbdd82ef.js
+/assets/app-f5c90c6075.js
 /assets/bundle-c331bfb315.css
 /assets/lib-2cf12bf509.js
 https://www.gstatic.com/firebasejs/3.2.1/firebase.js
@@ -14,8 +14,8 @@ https://www.gstatic.com/firebasejs/3.2.1/firebase.js
 /app/album/album.html
 /app/artist/artist.css
 /app/artist/artist.html
-/app/home/home.css
-/app/home/home.html
+/app/components/home/home.css
+/app/components/home/home.html
 /app/shared/components/navbar/navbar.html
 /app/components/app.html
 /assets/images/icons/android-chrome-144x144.png

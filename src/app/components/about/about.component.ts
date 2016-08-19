@@ -4,6 +4,11 @@ import { ActivatedRoute } from '@angular/router';
 
 declare var ENV: string;
 
+interface ITodo {
+  name: string;
+  done: boolean;
+}
+
 @Component({
   selector: 'as-about',
   templateUrl: 'app/components/about/about.html',
@@ -21,9 +26,9 @@ export class AboutComponent implements OnInit, OnDestroy {
   /**
    * List of todos.
    *
-   * @type {string[]}
+   * @type {ITodo[]}
    */
-  public todos: string[];
+  public todos: ITodo[];
 
   /**
    * Creates an instance of AboutComponent.
@@ -63,13 +68,15 @@ export class AboutComponent implements OnInit, OnDestroy {
     this.setTitle('About :: Year of the cat');
 
     this.todos = [
-        'Login to Spotify',
-        'Search for tracks',
-        'Favourite artists, albums, playlists',
-        '(Personal) app settings',
-        'Pagination of artists list',
-        'Multi language',
-        'Theming',
+        { 'name': 'Search for artists', 'done': true },
+        { 'name': 'Login to Spotify', 'done': false },
+        { 'name': 'Search for tracks', 'done': false },
+        { 'name': 'Favourite artists, albums, playlists', 'done': false },
+        { 'name': '(Personal) app settings', 'done': false },
+        { 'name': 'Pagination of artists list', 'done': false },
+        { 'name': 'Multi language', 'done': false },
+        { 'name': 'Theming', 'done': false },
+        { 'name': 'Offline support', 'done': true }
     ];
   }
 

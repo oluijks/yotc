@@ -4,8 +4,10 @@
       <h1 class="page-header text-center text-success">
         <i class="fa fa-spotify" aria-hidden="true"></i> Need music?
       </h1>
-      <p class="lead text-center">Use this app to search for your fav artists...</p>
-      <hr>
+      <div *ngIf="! isSearching">
+        <p class="lead text-center">Use this app to search for your fav artists...</p>
+        <hr>
+      </div>
 
       <form autocomplete="off">
         <div class="input-group form-group">

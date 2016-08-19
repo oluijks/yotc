@@ -69,6 +69,8 @@ export class HomeComponent implements OnInit, OnDestroy {
    */
   public disablePrevious: boolean = false;
 
+  public isSearching: boolean = false;
+
   /**
    *
    *
@@ -97,6 +99,7 @@ export class HomeComponent implements OnInit, OnDestroy {
    * Search the Spotify API.
    */
   searchSpotify() {
+    this.isSearching = true;
     if (this.searchTerm.trim() !== '' && this.searchTerm.trim().length > 2) {
       this._spotifyService.searchSpotify(this.searchTerm, '', this.offset, this.limit)
         .subscribe(
@@ -161,6 +164,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.limit = 3;
     this.offset = 0;
     this.searchResult = [];
+    this.isSearching = false;
     this.disableNext = false;
     this.disablePrevious = false;
   }

@@ -47,7 +47,9 @@
           <div role="tabpanel" class="tab-pane" id="todos">
             <br>
             <ul>
-              <li *ngFor="let todo of todos">{{ todo }}</li>
+              <li *ngFor="let todo of todos" [class.done]="todo.done">
+                {{ todo.name }}
+              </li>
             </ul>
           </div>
           <div role="tabpanel" class="tab-pane" id="source">

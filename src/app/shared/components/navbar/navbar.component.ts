@@ -9,7 +9,7 @@ declare var ENV: string;
 })
 export class NavbarComponent implements OnInit {
   /**
-   *
+   * App brand name.
    *
    * @type {string}
    */
@@ -22,5 +22,9 @@ export class NavbarComponent implements OnInit {
     if (ENV !== 'production') {
       console.log('Navbar component initialized');
     }
+  }
+
+  closeWindow() {
+    window.top.close();
   }
 }

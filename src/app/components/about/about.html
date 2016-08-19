@@ -6,32 +6,60 @@
         <li class="active">About</li>
       </ol>
       <h1 class="page-header">About Year of the cat <small>({{ version }})</small></h1>
+
       <p>
-        You can find the code on <a href="https://github.com/oluijks/yotc/">Github <i class="fa fa-github" aria-hidden="true"></i></a>
-      </p>
-      <hr>
-      <ul>
-        <li>Api's used
-          <ul>
-            <li><a href="https://developer.spotify.com/web-api/" target="_blank">Spotify</a></li>
-            <li><a href="http://www.last.fm/api/scrobbling" target="_blank">Last.fm</a></li>
-          </ul>
-        </li>
-        <li>Tools used
-          <ul>
-            <li><a href="https://angular.io/" target="_blank">Angular 2.0.0-rc.5</a></li>
-            <li><a href="https://github.com/antonybudianto/angular2-starter/" target="_blank">Angular2 Starter TypeScript 1.0.0-rc5</a></li>
-            <li><a href="https://daneden.github.io/animate.css/" target="_blank">Animate.css v3.1.0</a></li>
-            <li><a href="https://bootswatch.com/darkly/" target="_blank">Bootswatch (darkly) v3.3.7</a></li>
-            <li><a href="http://getbootstrap.com/" target="_blank">Bootstrap v3.3.7</a></li>
-            <li><a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code 1.4.0</a></li>
-          </ul>
-        </li>
-      </ul>
-      <h2 class="page-header">Todo</h2>
-      <ol>
-        <li *ngFor="let todo of todos">{{ todo }}</li>
-      </ol>
+        Just a fun little app I'm making to learn
+        Angular2 and TypeScript. Based upon a great tutorial by Brad Traversy I've seen on YouTube.
+      </p><br>
+
+      <div>
+        <ul class="nav nav-tabs" role="tablist">
+          <li role="presentation" class="active">
+            <a href="#tools" aria-controls="tools" role="tab" data-toggle="tab">Api's / Tools</a></li>
+          <li role="presentation">
+            <a href="#todos" aria-controls="todos" role="tab" data-toggle="tab">Todos</a></li>
+          <li role="presentation">
+            <a href="#source" aria-controls="source" role="tab" data-toggle="tab"><i class="fa fa-github" aria-hidden="true"></i></a>
+          </li>
+        </ul>
+
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" id="tools">
+            <br>
+            <ul>
+              <li>Api's used
+                <ul>
+                  <li><a href="https://developer.spotify.com/web-api/" target="_blank">Spotify</a></li>
+                  <li><a href="http://www.last.fm/api/scrobbling" target="_blank">Last.fm (Scrobbling API)</a></li>
+                </ul>
+              </li>
+              <li>Tools used
+                <ul>
+                  <li><a href="https://angular.io/" target="_blank">Angular 2.0.0-rc.5</a></li>
+                  <li><a href="https://github.com/antonybudianto/angular2-starter/" target="_blank">Angular2 Starter TypeScript 1.0.0-rc5</a></li>
+                  <li><a href="https://daneden.github.io/animate.css/" target="_blank">Animate.css v3.1.0</a></li>
+                  <li><a href="https://bootswatch.com/darkly/" target="_blank">Bootswatch (darkly) v3.3.7</a></li>
+                  <li><a href="http://getbootstrap.com/" target="_blank">Bootstrap v3.3.7</a></li>
+                  <li><a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code 1.4.0</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div role="tabpanel" class="tab-pane" id="todos">
+            <br>
+            <ul>
+              <li *ngFor="let todo of todos">{{ todo }}</li>
+            </ul>
+          </div>
+          <div role="tabpanel" class="tab-pane" id="source">
+            <br>
+            <p class="text-center">
+              <a href="https://github.com/oluijks/yotc/">
+              <h3><i class="fa fa-code-fork" aria-hidden="true"></i> me on <i class="fa fa-github" aria-hidden="true"></i></h3></a>
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

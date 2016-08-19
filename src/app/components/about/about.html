@@ -23,7 +23,7 @@
         </ul>
 
         <div class="tab-content">
-          <div role="tabpanel" class="tab-pane active" id="tools">
+          <div role="tabpanel" class="tab-pane fade in active" id="tools">
             <br>
             <ul>
               <li>Api's used
@@ -44,7 +44,7 @@
               </li>
             </ul>
           </div>
-          <div role="tabpanel" class="tab-pane" id="todos">
+          <div role="tabpanel" class="tab-pane fade" id="todos">
             <br>
             <ul>
               <li *ngFor="let todo of todos" [class.done]="todo.done">
@@ -52,7 +52,7 @@
               </li>
             </ul>
           </div>
-          <div role="tabpanel" class="tab-pane" id="source">
+          <div role="tabpanel" class="tab-pane fade" id="source">
             <br>
             <p class="text-center">
               <a href="https://github.com/oluijks/yotc/">

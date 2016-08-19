@@ -41,6 +41,9 @@ gulp.task('build-assets', function (done) {
     gulp.src(config.src + 'manifest.html')
       .pipe(gulp.dest(config.build.path));
 
+    gulp.src(config.src + 'browserconfig.xml')
+      .pipe(gulp.dest(config.build.path));
+
     gulp.src(config.src + 'offline.html')
       .pipe(gulp.dest(config.build.path));
 

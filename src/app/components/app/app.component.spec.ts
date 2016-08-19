@@ -12,9 +12,12 @@ import { Component } from '@angular/core';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from '../../shared/components/navbar/navbar.component';
 
+import { RouterOutlet } from '@angular/router';
+
 @Component({
     selector: 'as-test-cmp',
-    template: '<div class="title">Hello test</div>'
+    template: '<div class="title">Hello world</div>',
+    directives: [RouterOutlet]
 })
 class TestRouterComponent {
 }
@@ -38,7 +41,7 @@ describe('AppComponent', () => {
         });
     });
 
-    it('should have title Hello world', async(() => {
+    it('should have page header with Need music?', async(() => {
         TestBed.compileComponents().then(() => {
             let fixture: ComponentFixture<AppComponent>;
             fixture = TestBed.createComponent(AppComponent);
@@ -46,8 +49,10 @@ describe('AppComponent', () => {
 
             let compiled = fixture.debugElement.nativeElement;
             expect(compiled).toBeDefined();
+            // console.log(compiled);
+            // console.log(compiled.querySelector('page-header'));
             // TODO: find a way to compile the routed component
-            // expect(compiled.querySelector('div.title')).toMatch('Hello world');
+            // expect(compiled.querySelector('.page-header')).toBe('Year of the cat');
         });
     }));
 });

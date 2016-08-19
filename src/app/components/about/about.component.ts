@@ -4,6 +4,11 @@ import { ActivatedRoute } from '@angular/router';
 
 declare var ENV: string;
 
+/**
+ * Todo interface.
+ *
+ * @interface ITodo
+ */
 interface ITodo {
   name: string;
   done: boolean;
